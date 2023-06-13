@@ -1,0 +1,11 @@
+Vagrant.configure("2") do |config|
+  
+  config.vm.box = "centos/7"
+  config.vbguest.installer_options = { allow_kernel_upgrade: true }
+  config.vm.hostname = "laravel"
+  config.vm.network 'forwarded_port', guest: 8000, host: 8000, hostip: "127.0.0.1"
+  config.vm.synced_folder ".", "/opt", type: "nfs"
+  config.vm.provision "shell", path: "provision.sh"
+
+  
+end
