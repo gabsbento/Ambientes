@@ -1,0 +1,12 @@
+default: &default
+  adapter: mysql2
+  encoding: utf8
+  pool: 5
+  socket: /var/run/mysqld/mysqld.sock
+
+production:
+  <<: *default
+  database: eurecadb
+  username: neweureca
+  password: 3ur3c4@CASAL
+  host: <%= ENV['REDMINE_DB_MYSQL'] %>
